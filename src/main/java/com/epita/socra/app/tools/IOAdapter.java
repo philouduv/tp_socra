@@ -5,5 +5,4 @@ public interface IOAdapter {
 
     void write(String message);
 
-    String convert(String number);
 }

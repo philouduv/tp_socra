@@ -7,7 +7,7 @@ import com.epita.socra.app.tools.*;
  */
 public final class App {
     private IOAdapter adapter;
-
+    private ConvertorInterface conv = new Convertor();
     private App() {
         this(new ConsoleAdapter());
     }
@@ -29,7 +29,7 @@ public final class App {
     public void run(){
         adapter.write("Enter your Arabic Number : ");
         String number = adapter.read();
-        String roman = adapter.convert(number);
+        String roman = conv.convert_A_to_R(number);
         adapter.write("Here's your Roman number : " + roman + " !");
     }
 }
