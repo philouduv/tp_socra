@@ -4,4 +4,6 @@ public interface IOAdapter {
     String read();
 
     void write(String message);
+
+    String convert(String number);
 }

@@ -27,6 +27,16 @@ public class AppTest {
 
         verify(mock).write("Hello, what's your name ?");
         verify(mock).write(argThat(message -> message.contains("TEST")));
+    }
 
+    @Test
+    public void givenAGoodNumber_ToRoman() {
+        IOAdapter mock = mock(IOAdapter.class);
+        when(mock.read()).thenReturn("3000");
+        App app = new App(mock);
+        app.run();
+
+        verify(mock).write("Enter your Arabic Number : ");
+        verify(mock).write(argThat(message -> message.contains("MMM")));
     }
 }

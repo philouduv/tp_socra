@@ -18,7 +18,7 @@ public final class App {
 
     /**
      * Says hello to the world.
-     * 
+     *
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
@@ -27,8 +27,9 @@ public final class App {
     }
 
     public void run(){
-        adapter.write("Hello, what's your name ?");
-        String name = adapter.read();
-        adapter.write("Nice to meet you, " + name + " !");
+        adapter.write("Enter your Arabic Number : ");
+        String number = adapter.read();
+        String roman = adapter.convert(number);
+        adapter.write("Here's your Roman number : " + roman + " !");
     }
 }
