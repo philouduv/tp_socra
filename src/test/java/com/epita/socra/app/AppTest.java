@@ -28,17 +28,15 @@ public class AppTest {
         verify(mock).write(argThat(message -> message.contains("TEST")));
     }
 
-
+*/
     @Test
     public void givenAGoodNumber_ArabicToRoman() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("Arabic");
+        //when(mock.read()).thenReturn("Arabic");
         when(mock.read()).thenReturn("3000");
         App app = new App(mock);
-        app.run();
-        when(mock.read()).thenReturn("3000");
+        app.runInArabic();
 
-        verify(mock).write("Enter your conversion type : ");
         verify(mock).write("Enter your number : ");
         verify(mock).write(argThat(message -> message.contains("MMM")));
     }
@@ -46,15 +44,13 @@ public class AppTest {
     @Test
     public void givenAGoodNumber_RomanToArabic() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("Roman");
-        App app = new App(mock);
-        app.run();
         when(mock.read()).thenReturn("MMM");
+        App app = new App(mock);
+        app.runInRoman();
 
-        verify(mock).write("Enter your conversion type : ");
         verify(mock).write("Enter your number : ");
         verify(mock).write(argThat(message -> message.contains("3000")));
-    }*/
+    }
 
     @Test
     public void givenAGoodNumber_bad_type() {
@@ -69,27 +65,23 @@ public class AppTest {
     @Test
     public void givenABadNumber_RomanToArabic() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("Roman");
+        when(mock.read()).thenReturn("MM124");
         App app = new App(mock);
-        app.run();
-        when(mock.read()).thenReturn("MM124t");
+        app.runInRoman();
 
-        verify(mock).write("Enter your conversion type : ");
         verify(mock).write("Enter your number : ");
         verify(mock).write(argThat(message -> message.contains("null")));
-    }/*
+    }
 
     @Test
     public void givenABadNumber_ArabicToRoman() {
         IOAdapter mock = mock(IOAdapter.class);
-        when(mock.read()).thenReturn("Arabic");
         when(mock.read()).thenReturn("3001");
         App app = new App(mock);
-        app.run();
+        app.runInArabic();
 
-        verify(mock).write("Enter your conversion type : ");
         verify(mock).write("Enter your number : ");
         verify(mock).write(argThat(message -> message.contains("null")));
-    }*/
+    }
 }
 

@@ -44,4 +44,17 @@ public final class App {
             adapter.write("Here's your converted number is : " + roman + " !");
         }
     }
+    public void runInRoman(){
+        adapter.write("Enter your number : ");
+        String number = adapter.read();
+        String roman = conv.convert_R_to_A(number);
+        adapter.write("Here's your converted number is : " + roman + " !");
+    }
+    public void runInArabic(){
+        adapter.write("Enter your number : ");
+        String number = adapter.read();
+        String roman = conv.convert_A_to_R(number);
+        adapter.write("Here's your converted number is : " + roman + " !");
+    }
+
 }
