@@ -27,9 +27,21 @@ public final class App {
     }
 
     public void run(){
-        adapter.write("Enter your Arabic Number : ");
-        String number = adapter.read();
-        String roman = conv.convert_A_to_R(number);
-        adapter.write("Here's your Roman number : " + roman + " !");
+        adapter.write("Enter your conversion type : ");
+        String type = adapter.read();
+        if (!type.equals("Roman") && !type.equals("Arabic")){
+            adapter.write("Bad conversion type !");
+            return;
+        }
+        String roman = "";
+        while (roman != null){
+            adapter.write("Enter your number : ");
+            String number = adapter.read();
+            if (type.equals("Roman"))
+                roman = conv.convert_R_to_A(number);
+            else
+                roman = conv.convert_A_to_R(number);
+            adapter.write("Here's your converted number is : " + roman + " !");
+        }
     }
 }
